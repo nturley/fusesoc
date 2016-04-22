@@ -70,6 +70,21 @@ class Core:
             else:
                 self.name = basename.split('.core')[0]
 
+            if self.main.vendor:
+                self.vendor = self.main.vendor
+            else:
+                self.vendor = ""
+
+            if self.main.library:
+                self.library = self.main.library
+            else:
+                self.library = ""
+
+            if self.main.version:
+                self.version = self.main.version
+            else:
+                self.version = ""
+
             self.depend     = self.main.depend
             self.simulators = self.main.simulators
 
