@@ -123,7 +123,7 @@ class CoreManager(object):
             raise DependencyError(core)
 
     def get_cores(self):
-        return {x.name:x for x in self.db.find(("", "", "", ""))}
+        return {':'.join([x.vendor, x.library, x.name, x.version]):x for x in self.db.find(("", "", "", ""))}
 
     def get_core(self, name):
         c = None
