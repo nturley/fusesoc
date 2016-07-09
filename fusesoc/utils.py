@@ -68,8 +68,8 @@ def run_scripts(scripts, scripts_root, cwd, env):
     for script_name in scripts:
         script = os.path.abspath(os.path.join(scripts_root, script_name))
         pr_info("Running " + script);
-        Launcher(script, cwd = cwd, env = env, shell=True).run()
-    
+        Launcher('sh', args=[script], cwd=cwd, env=env, shell=True).run()
+
 def find_verilator():
     verilator_root = os.getenv('VERILATOR_ROOT')
     if verilator_root is None:
@@ -149,7 +149,7 @@ import os
 
 def which(name, flags=os.X_OK):
     """Search PATH for executable files with the given name.
-   
+
     On newer versions of MS-Windows, the PATHEXT environment variable will be
     set to the list of file extensions for files considered executable. This
     will normally include things like ".EXE". This fuction will also find files
@@ -157,13 +157,13 @@ def which(name, flags=os.X_OK):
 
     On MS-Windows the only flag that has any meaning is os.F_OK. Any other
     flags will be ignored.
-   
+
     @type name: C{str}
     @param name: The name for which to search.
-   
+
     @type flags: C{int}
     @param flags: Arguments to L{os.access}.
-   
+
     @rtype: C{list}
     @param: A list of the full paths to files found, in the
     order in which they were found.
