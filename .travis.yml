@@ -12,3 +12,4 @@ script:
   - "fusesoc list-systems"
   - "fusesoc list-cores"
   - "fusesoc update"
+  - "fusesoc sim --sim=icarus wb_sdram_ctrl"
